@@ -1,0 +1,49 @@
+.multiple-files-wrapper .multiple-files-selected-list {
+
+}
+
+.multiple-files-wrapper .multiple-files-selected-list .selected-file{
+    width: 60px;
+    border: none;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    position: relative;
+}
+
+.multiple-files-wrapper .multiple-files-selected-list .selected-file:hover{
+    cursor: move;
+    cursor: -webkit-grab;
+}
+
+.multiple-files-wrapper .multiple-files-selected-list .selected-file:focus,
+.multiple-files-wrapper .multiple-files-selected-list .selected-file:active{
+    cursor: -webkit-grabbing;
+}
+
+.multiple-files-wrapper .multiple-files-selected-list .selected-file .icon img{
+    display: block;
+}
+
+.multiple-files-wrapper .multiple-files-selected-list .selected-file .delete{
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    padding: 1px 3px;
+    font-size: 14px;
+    line-height: 14px;
+    border-radius: 50%;
+    display: block;
+    width: 19px;
+    height: 19px;
+    background-color: indianred;
+    border: 1px solid #aa5050;
+    color: white;
+}
+
+.multiple-files-wrapper .multiple-files-selected-list .selected-file .delete:hover{
+    background-color: #b85b5b;
+    border-color: #a35252;
+    cursor: pointer;
+}

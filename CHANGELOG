@@ -1,0 +1,8 @@
+0.9 - Beta
+1.0 - Release
+1.0.1 - fix bug with URL in JS
+1.0.2 - JS validate max files
+1.0.3 - removed multiple files form conflicts on JS
+1.0.4 - change icon and display design
+1.0.5 - fix error with templates in IE
+1.0.6 - fix display not-image files
