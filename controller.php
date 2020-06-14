@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * Created by Pure/Web for Pure/Multiple files
  * www.pure-web.ru
@@ -51,8 +51,8 @@ class Controller extends PackageInstaller {
             $token = \Core::make('token');
             /** @var \Concrete\Core\Error\ErrorList\ErrorList $e */
             $e = \Core::make('error');
-            /** @var \Concrete\Core\Http\Service\AJAX $ajax */
-            $ajax =  \Core::make('helper/ajax');
+            /** @var \Concrete\Core\Http\ResponseFactoryInterface $responseFactory */
+            $responseFactory = \Core::make(\Concrete\Core\Http\ResponseFactoryInterface::class);
 
             if ($token->validate('get_files_info')) {
                 //$fIDs = explode(',', $_GET['fIDs']);
@@ -84,9 +84,9 @@ class Controller extends PackageInstaller {
             }
 
             if (!$e->has()) {
-                $ajax->sendResult($files);
+                return $responseFactory->json($files);
             } else {
-                $ajax->sendError($e);
+                return $responseFactory->json($e);
             }
         });
         //*********************
