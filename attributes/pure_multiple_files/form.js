@@ -45,15 +45,17 @@ var MultipleFilesAttribute = {
             e.preventDefault();
             var akID = $(this).data('akid');
             if (MultipleFilesAttribute.checkLimit(akID, max_count)) {
-                ConcreteFileManager.launchDialog(function (data) {
-                    if (data.fID) {
-                        if (MultipleFilesAttribute.checkLimit(akID, max_count-data.fID.length+1)) {
-                            MultipleFilesAttribute.setFiles(akID, data.fID, token);
+                ConcreteFileManager.launchDialog(function(data) {
+                    ConcreteFileManager.getFileDetails(data.fID, function(r) {
+                        if (data.fID) {
+                            if (MultipleFilesAttribute.checkLimit(akID, max_count-data.fID.length+1)) {
+                                MultipleFilesAttribute.setFiles(akID, [data.fID], token);
+                            }
                         }
-                    }
-                }, {
-                    multipleSelection: true,
-                    selectMode: 'multiple'
+                    }, {
+                        multipleSelection: true,
+                        selectMode: 'multiple'
+                    });
                 });
             }
         });
