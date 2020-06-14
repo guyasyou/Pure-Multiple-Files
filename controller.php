@@ -16,8 +16,8 @@ defined('C5_EXECUTE') or die("Access Denied.");
 class Controller extends PackageInstaller {
 
 	protected $pkgHandle = 'pure_multiple_files';
-	protected $appVersionRequired = '8.0.0';
-	protected $pkgVersion = '1.0.6';
+	protected $appVersionRequired = '8.5.4';
+	protected $pkgVersion = '1.0.8';
 
     public function getPackageName() {
 		return t("Multiple files attribute");
