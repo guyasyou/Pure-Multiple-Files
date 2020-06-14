@@ -48,7 +48,7 @@ var MultipleFilesAttribute = {
                 ConcreteFileManager.launchDialog(function(data) {
                     ConcreteFileManager.getFileDetails(data.fID, function(r) {
                         if (data.fID) {
-                            if (MultipleFilesAttribute.checkLimit(akID, max_count-data.fID.length+1)) {
+                            if (MultipleFilesAttribute.checkLimit(akID, max_count)) {
                                 MultipleFilesAttribute.setFiles(akID, [data.fID], token);
                             }
                         }
