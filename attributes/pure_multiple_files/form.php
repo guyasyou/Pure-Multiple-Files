@@ -45,7 +45,7 @@ $akMaxFilesCount = $akMaxFilesCount ? $akMaxFilesCount : 0
         if (is_array($currentFiles)) {
             foreach ($currentFiles as $index => $file) {
                 $fv = $file->getRecentVersion();
-                echo '{fID:'.$fv->getFileID().',filename:\''.$fv->getTitle().'\',thumbnailIMG:\''.$fv->getListingThumbnailImage().'\'}';
+                echo '{fID:'.$fv->getFileID().',filename:'.json_encode($fv->getTitle()).',thumbnailIMG:'.json_encode($fv->getListingThumbnailImage()).'}';
                 if ($index < count($currentFiles) - 1) {
                     echo ',';
                 }
