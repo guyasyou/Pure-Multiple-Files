@@ -6,18 +6,19 @@
  */
 
 namespace Concrete\Package\PureMultipleFiles;
-use \Concrete\Core\Package\Package as PackageInstaller;
-use Route;
+
 use \Concrete\Core\Attribute\Type as AttributeType;
-use File;
+use \Concrete\Core\File\File;
+use \Concrete\Core\Package\Package as PackageInstaller;
+use \Concrete\Core\Support\Facade\Route;
 
 defined('C5_EXECUTE') or die("Access Denied.");
 
 class Controller extends PackageInstaller {
 
 	protected $pkgHandle = 'pure_multiple_files';
-	protected $appVersionRequired = '8.5.4';
-	protected $pkgVersion = '1.0.8';
+	protected $appVersionRequired = '9.0.0';
+	protected $pkgVersion = '2.0.0';
 
     public function getPackageName() {
 		return t("Multiple files attribute");
@@ -48,11 +49,11 @@ class Controller extends PackageInstaller {
         //Routes
         Route::register('/ccm/multiple_files_attribute/get_file_info/', function() {
             /** @var \Concrete\Core\Validation\CSRF\Token $token */
-            $token = \Core::make('token');
+            $token = $this->app->make('token');
             /** @var \Concrete\Core\Error\ErrorList\ErrorList $e */
-            $e = \Core::make('error');
+            $e = $this->app->make('error');
             /** @var \Concrete\Core\Http\ResponseFactoryInterface $responseFactory */
-            $responseFactory = \Core::make(\Concrete\Core\Http\ResponseFactoryInterface::class);
+            $responseFactory = $this->app->make(\Concrete\Core\Http\ResponseFactoryInterface::class);
 
             if ($token->validate('get_files_info')) {
                 //$fIDs = explode(',', $_GET['fIDs']);
@@ -96,9 +97,8 @@ class Controller extends PackageInstaller {
     public function install() {
         /** @var $pkg \Concrete\Core\Entity\Package() */
         $pkg = parent::install(); //parent is \Concrete\Core\Package\Package
+
         //\Concrete\Core\Attribute\Type as AttributeType
         AttributeType::add("pure_multiple_files", "Multiple Files Attribute", $pkg);
-
 	}
-
 }

@@ -3,7 +3,6 @@
 }
 
 .multiple-files-wrapper .multiple-files-selected-list .selected-file{
-    width: 60px;
     border: none;
     margin-right: 10px;
     margin-top: 5px;
@@ -30,16 +29,17 @@
     position: absolute;
     top: -7px;
     right: -7px;
-    padding: 1px 3px;
+    padding: 3px 3px;
     font-size: 14px;
     line-height: 14px;
     border-radius: 50%;
     display: block;
-    width: 19px;
-    height: 19px;
+    width: 20px;
+    height: 20px;
     background-color: indianred;
     border: 1px solid #aa5050;
     color: white;
+    text-align: center;
 }
 
 .multiple-files-wrapper .multiple-files-selected-list .selected-file .delete:hover{
