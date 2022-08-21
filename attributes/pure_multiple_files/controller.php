@@ -14,7 +14,7 @@ use Concrete\Package\PureMultipleFiles\Entity\Attribute\Key\Settings\MultipleFil
 use Concrete\Core\Error\ErrorList\Error\Error;
 use Concrete\Core\Error\ErrorList\Error\FieldNotPresentError;
 use Concrete\Core\Error\ErrorList\Field\AttributeField;
-use File;
+use Concrete\Core\File\File;
 use Concrete\Core\Attribute\Controller as AttributeTypeController;
 
 class Controller extends AttributeTypeController
@@ -39,7 +39,7 @@ class Controller extends AttributeTypeController
         if (is_object($filesValue)) {
             $filesArray = $filesValue->getFileObjects();
             if (count($filesArray) > 0) {
-                $this->addHeaderItem(\Core::make('helper/html')->css('/'.DIRNAME_PACKAGES.'/pure_multiple_files/attributes/pure_multiple_files/view.css'));
+                $this->addHeaderItem($this->app->make('helper/html')->css('/'.DIRNAME_PACKAGES.'/pure_multiple_files/attributes/pure_multiple_files/view.css'));
                 $html .= '<div class="display_multiple_files multiple_files_akID_'.$this->getAttributeKey()->getAttributeKeyID().'">';
                 foreach ($filesArray as $file) {
                     /** @var \Concrete\Core\File\File $file */
@@ -94,22 +94,33 @@ class Controller extends AttributeTypeController
         $this->requireAsset('jquery/ui');
         $this->requireAsset('javascript', 'jquery/tmpl');
 
-        $this->set('token', \Core::make('token'));
+        $this->set('token', $this->app->make('token'));
 
+        $currentFiles = [];
         if (is_object($this->attributeValue)) {
-            $currentFilesValue = $this->attributeValue->getValue();
-            if ($currentFilesValue) {
-                $currentFiles = $currentFilesValue->getFileObjects();
-                $this->set('currentFiles', $currentFiles);
+            $attributeFilesValue = $this->attributeValue->getValue();
+            if ($attributeFilesValue) {
+                $attributeFiles = $attributeFilesValue->getFileObjects();
+                if (is_array($attributeFiles)) {
+                    foreach ($attributeFiles as $file) {
+                        $fv = $file->getRecentVersion();
+                        $currentFiles[] = array(
+                            'fID' => $fv->getFileID(),
+                            'filename' => $fv->getTitle(),
+                            'thumbnailIMG' => $fv->getListingThumbnailImage()
+                        );
+                    }
+                }
             }
         }
+        $this->set('currentFiles', $currentFiles);
 
         $this->load();
     }
 
     public function type_form()
     {
-        $this->set('form', \Core::make('helper/form'));
+        $this->set('form', $this->app->make('helper/form'));
         $this->load();
     }
 
