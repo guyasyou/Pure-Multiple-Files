@@ -1,0 +1,88 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Noindex Settings 1.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-11 16:55+0900\n"
+"PO-Revision-Date: 2023-04-11 17:03+0900\n"
+"Last-Translator: Fumito MIZUNO <ounziw@gmail.com>\n"
+"Language-Team: \n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: t\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 2.4.2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ../../..\n"
+
+#: ../../../attributes/pure_multiple_files/controller.php:72
+msgid "Files not found"
+msgstr "ファイルが見つかりません"
+
+#: ../../../attributes/pure_multiple_files/controller.php:75
+msgid "Attribute value not found"
+msgstr "属性が見つかりません"
+
+#: ../../../attributes/pure_multiple_files/controller.php:142
+msgid "Maximum count of files must be number"
+msgstr "数値を入力してください"
+
+#: ../../../attributes/pure_multiple_files/controller.php:146
+msgid "Maximum count of files must be greater than zero"
+msgstr "0より大きい数を入力してください"
+
+#: ../../../attributes/pure_multiple_files/controller.php:160
+#, php-format
+msgid "Limit of files is exceeded for %s"
+msgstr "%s のファイル数の上限を超えています"
+
+#: ../../../attributes/pure_multiple_files/controller.php:173
+#, php-format
+msgid "You must specify a valid file for %s"
+msgstr "%s に適切なファイルを指定してください"
+
+#: ../../../attributes/pure_multiple_files/form.php:19
+msgid "Remove"
+msgstr "削除する"
+
+#: ../../../attributes/pure_multiple_files/form.php:24
+msgid "Drag and drop to sort"
+msgstr "ドラッグ＆ドロップで並べ替え"
+
+#: ../../../attributes/pure_multiple_files/form.php:27
+msgid "Maximum"
+msgstr "最大ファイル数"
+
+#: ../../../attributes/pure_multiple_files/form.php:31
+msgid "Add files"
+msgstr "ファイルを追加"
+
+#: ../../../attributes/pure_multiple_files/type_form.php:13
+msgid "Multiply Files Options"
+msgstr "オプション"
+
+#: ../../../attributes/pure_multiple_files/type_form.php:15
+msgid "Maximum count of files"
+msgstr "最大ファイル数"
+
+#: ../../../attributes/pure_multiple_files/type_form.php:19
+msgid "0 for infinity"
+msgstr "0 を指定すると制限無し"
+
+#: ../../../controller.php:24
+msgid "Multiple files attribute"
+msgstr "複数ファイル"
+
+#: ../../../controller.php:28
+msgid "Multiple file selection attribute"
+msgstr "複数ファイルを選択する属性"
+
+#: ../../../controller.php:76
+msgid "File not found"
+msgstr "ファイルが見つかりません"
+
+#: ../../../controller.php:81
+msgid "File IDs is not valid"
+msgstr "ファイルIDが有効ではありません"
